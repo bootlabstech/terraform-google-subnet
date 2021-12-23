@@ -1,12 +1,10 @@
 terraform {
+  required_version = ">=0.13"
+  
   required_providers {
     google = {
-      version = " ~>4.0.0"
+      version = "4.1.0"
       source  = "hashicorp/google"
     }
   }
-}
-
-provider "google" {
-  region = "ap-south-1"
 }
