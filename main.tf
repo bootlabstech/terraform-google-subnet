@@ -3,6 +3,7 @@ resource "google_compute_subnetwork" "vpc_subnet" {
   ip_cidr_range = var.cidr_range
   region        = var.region
   network       = var.network_id
+  project       = var.project
   
   dynamic "secondary_ip_range" {
     for_each = var.secondary_ip_range
