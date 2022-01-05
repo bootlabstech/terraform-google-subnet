@@ -32,3 +32,10 @@ variable "secondary_ip_range" {
       ip_cidr_range = string
   }))
 }
+
+// optional variables
+variable "description" {
+  description = "The resource must be recreated to modify this field."
+  type        = string
+  default     = "the subnetwork created in the vpc"
+}
