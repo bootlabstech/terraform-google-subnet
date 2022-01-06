@@ -16,7 +16,7 @@ resource "google_compute_subnetwork" "vpc_subnet" {
   }
   
   dynamic "log_config" {
-    for_each = var.enable_log_config == [1] : []
+    for_each = var.enable_log_config == true ? [1] : []
     content {
       aggregation_interval = var.aggregation_interval
       flow_sampling        = var.flow_sampling
