@@ -5,6 +5,7 @@ resource "google_compute_subnetwork" "vpc_subnet" {
   region        = var.region
   network       = var.network_id
   project       = var.project
+  private_ip_google_access = var.private_ip_google_access
   
   dynamic "secondary_ip_range" {
     for_each = var.secondary_ip_range
