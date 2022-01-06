@@ -71,7 +71,7 @@ variable "metadata" {
 }
 
 variable "metadata_fields" {
-  description = "List of metadata fields that should be added to reported logs. Can only be specified if VPC flow logs for this subnetwork is enabled and "metadata" is set to CUSTOM_METADATA."
+  description = "List of metadata fields that should be added to reported logs. Can only be specified if VPC flow logs for this subnetwork is enabled and metadata is set to CUSTOM_METADATA."
   type        = list(any)
   default     = []
 }
