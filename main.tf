@@ -14,4 +14,14 @@ resource "google_compute_subnetwork" "vpc_subnet" {
       ip_cidr_range = secondary_ip_range.value.ip_cidr_range
     }
   }
+  
+  dynamic "log_config" {
+    for_each = var.enable_log_config == [1] : []
+    content {
+      aggregation_interval = var.aggregation_interval
+      flow_sampling        = var.flow_sampling
+      metadata             = var.metadata
+      metadata_fields      = var.metadata_fields
+    }
+  }
 }
