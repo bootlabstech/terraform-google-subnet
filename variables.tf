@@ -20,7 +20,7 @@ variable "region" {
   type        = string
 }
 
-variable "project" {
+variable "project_id" {
   description = "The project where the subnet will live"
   type        = string
 }
@@ -28,8 +28,8 @@ variable "project" {
 variable "secondary_ip_range" {
   description = "An array of configurations for secondary IP ranges for VM instances contained in this subnetwork."
   type = list(object({
-      range_name = string
-      ip_cidr_range = string
+    range_name    = string
+    ip_cidr_range = string
   }))
 }
 
