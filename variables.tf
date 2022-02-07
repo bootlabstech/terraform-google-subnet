@@ -16,12 +16,48 @@ variable "network_id" {
 }
 
 variable "region" {
-  description = "The region where the subnet will live"
+  description = <<-EOT
+    {
+   "type": "api",
+   "purpose": "autocomplete",
+   "data":[ "asia-east1",
+        "asia-east2",
+        "asia-northeast1",
+        "asia-northeast2",
+        "asia-northeast3",
+        "asia-south1",
+        "asia-south2",
+        "asia-southeast1",
+        "asia-southeast2",
+        "australia-southeast1",
+        "australia-southeast2",
+        "europe-central2",
+        "europe-north1",
+        "europe-west1",
+        "europe-west2",
+        "europe-west3",
+        "europe-west4",
+        "europe-west6",
+        "northamerica-northeast1",
+        "northamerica-northeast2",
+        "southamerica-east1",
+        "southamerica-west1",
+        "us-central1",
+        "us-east1",
+        "us-east4",
+        "us-west1",
+        "us-west2",
+        "us-west3",
+        "us-west4"
+    ],
+   "description": "regions used for deployment"
+}
+  EOT
   type        = string
 }
 
 variable "project" {
-  description = "The project where the subnet will live"
+  description =  "project ID"
   type        = string
 }
 
@@ -41,13 +77,34 @@ variable "description" {
 }
 
 variable "private_ip_google_access" {
-  description = "When enabled, VMs in this subnetwork without external IP addresses can access Google APIs and services by using Private Google Access."
+  description = <<-EOT
+  {
+   "type": "bool",
+   "purpose": "autocomplete",
+   "data": [
+  "true",
+  "false"
+   ],
+   "default":true
+   "description": "When enabled, VMs in this subnetwork without external IP addresses can access Google APIs and services by using Private Google Access."
+EOT
   type        = bool
   default     = true
 }
 
 variable "enable_log_config" {
-  description = "When enabled subnet flow logs will be pushed to stackdriver"
+  description = <<-EOT
+  {
+   "type": "bool",
+   "purpose": "autocomplete",
+   "data": [
+  "true",
+  "false"
+   ],
+   "default":true
+   "description": "When enabled subnet flow logs will be pushed to stackdriver"
+}
+EOT 
   type        = bool
   default     = true
 }
