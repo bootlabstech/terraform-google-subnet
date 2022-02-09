@@ -18,7 +18,7 @@ variable "network_id" {
 variable "region" {
   description = <<-EOT
     {
-   "type": "api",
+   "type": "json",
    "purpose": "autocomplete",
    "data":[ "asia-east1",
         "asia-east2",
@@ -79,13 +79,13 @@ variable "description" {
 variable "private_ip_google_access" {
   description = <<-EOT
   {
-   "type": "bool",
+   "type": "json",
    "purpose": "autocomplete",
    "data": [
-  "true",
-  "false"
+    true,
+    false
    ],
-   "default":true
+   "default":false,
    "description": "When enabled, VMs in this subnetwork without external IP addresses can access Google APIs and services by using Private Google Access."
 EOT
   type        = bool
@@ -95,13 +95,13 @@ EOT
 variable "enable_log_config" {
   description = <<-EOT
   {
-   "type": "bool",
+   "type": "json",
    "purpose": "autocomplete",
    "data": [
-  "true",
-  "false"
+    true,
+    false
    ],
-   "default":true
+   "default":false,
    "description": "When enabled subnet flow logs will be pushed to stackdriver"
 }
 EOT 
