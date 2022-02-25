@@ -39,6 +39,10 @@ variable "secondary_ip_range" {
       ip_cidr_range = string
   }))
 }
+variable "tags" {
+  type        = list(string)
+  description = "this will be used for tagging resources."
+}
 
 // optional variables
 variable "description" {
