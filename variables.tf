@@ -57,10 +57,9 @@ variable "private_ip_google_access" {
    "type": "json",
    "purpose": "autocomplete",
    "data": [
-  "true",
-  "false"
+    true,
+    false
    ],
-   "default":true,
    "description": "When enabled, VMs in this subnetwork without external IP addresses can access Google APIs and services by using Private Google Access."
    }
 EOT
@@ -74,8 +73,8 @@ variable "enable_log_config" {
    "type": "json",
    "purpose": "autocomplete",
    "data": [
-  "true",
-  "false"
+    true,
+    false
    ],
    "default":true,
    "description": "Whether log_config is set."
