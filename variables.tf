@@ -1,7 +1,7 @@
 //required variables
 
 variable "name" {
-  description = "The name of the network being created"
+  description = "The name of the subnet being created"
   type        = string
 }
 
@@ -17,42 +17,13 @@ variable "network_id" {
 
 variable "region" {
   description = <<-EOT
-    {
-   "type": "json",
+  {
+   "type": "api",
    "purpose": "autocomplete",
-   "data":[ "asia-east1",
-        "asia-east2",
-        "asia-northeast1",
-        "asia-northeast2",
-        "asia-northeast3",
-        "asia-south1",
-        "asia-south2",
-        "asia-southeast1",
-        "asia-southeast2",
-        "australia-southeast1",
-        "australia-southeast2",
-        "europe-central2",
-        "europe-north1",
-        "europe-west1",
-        "europe-west2",
-        "europe-west3",
-        "europe-west4",
-        "europe-west6",
-        "northamerica-northeast1",
-        "northamerica-northeast2",
-        "southamerica-east1",
-        "southamerica-west1",
-        "us-central1",
-        "us-east1",
-        "us-east4",
-        "us-west1",
-        "us-west2",
-        "us-west3",
-        "us-west4"
-    ],
+   "data": "/api/v1/autocomplete/regions",
    "description": "regions used for deployment"
 }
-  EOT
+EOT
   type        = string
 }
 
@@ -67,6 +38,10 @@ variable "secondary_ip_range" {
       range_name = string
       ip_cidr_range = string
   }))
+}
+variable "tags" {
+  type        = list(string)
+  description = "this will be used for tagging resources."
 }
 
 // optional variables
@@ -85,8 +60,8 @@ variable "private_ip_google_access" {
     true,
     false
    ],
-   "default":false,
    "description": "When enabled, VMs in this subnetwork without external IP addresses can access Google APIs and services by using Private Google Access."
+   }
 EOT
   type        = bool
   default     = true
@@ -101,8 +76,8 @@ variable "enable_log_config" {
     true,
     false
    ],
-   "default":false,
-   "description": "When enabled subnet flow logs will be pushed to stackdriver"
+   "default":true,
+   "description": "Whether log_config is set."
 }
 EOT 
   type        = bool
@@ -122,7 +97,19 @@ variable "flow_sampling" {
 }
 
 variable "metadata" {
-  description = "Can only be specified if VPC flow logging for this subnetwork is enabled. Configures whether metadata fields should be added to the reported VPC flow logs. Default value is INCLUDE_ALL_METADATA. Possible values are EXCLUDE_ALL_METADATA, INCLUDE_ALL_METADATA, and CUSTOM_METADATA."
+  description = <<-EOT
+  {
+   "type": "json",
+   "purpose": "autocomplete",
+   "data": [
+     "INCLUDE_ALL_METADATA",
+     "EXCLUDE_ALL_METADATA",
+     "CUSTOM_METADATA"
+   ],
+   "default": "INCLUDE_ALL_METADATA",
+   "description": "Can only be specified if VPC flow logging for this subnetwork is enabled. Configures whether metadata fields should be added to the reported VPC flow logs."
+}
+EOT 
   type        = string
   default     = "INCLUDE_ALL_METADATA"
 }
