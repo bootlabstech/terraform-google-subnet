@@ -64,7 +64,7 @@ variable "private_ip_google_access" {
    }
 EOT
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "enable_log_config" {
@@ -81,7 +81,7 @@ variable "enable_log_config" {
 }
 EOT 
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "aggregation_interval" {
