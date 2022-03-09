@@ -86,6 +86,12 @@ variable "aggregation_interval" {
   default     = "INTERVAL_15_MIN"
 }
 
+variable "filter_expr" {
+  description = "Export filter used to define which VPC flow logs should be logged, as as CEL expression."
+  type        = bool
+  default     = true
+}
+
 variable "flow_sampling" {
   description = "Can only be specified if VPC flow logging for this subnetwork is enabled. The value of the field must be in [0, 1]. Set the sampling rate of VPC flow logs within the subnetwork where 1.0 means all collected logs are reported and 0.0 means no logs are reported. Default is 0.5 which means half of all collected logs are reported."
   type        = number
