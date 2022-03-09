@@ -22,7 +22,6 @@ resource "google_compute_subnetwork" "vpc_subnet" {
       flow_sampling        = var.flow_sampling
       metadata             = var.metadata
       metadata_fields      = var.metadata_fields
-      filter_expr          = var.filter_expr
     }
   }
 }
